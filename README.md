@@ -1,4 +1,4 @@
-![Spring Boot](https://img.shields.io/badge/SpringBoot-brightgreen?style=flat&logo=SpringBoot&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-brightgreen?style=for-the-badge&logo=SpringBoot&logoColor=white)
 
 ![JAVASCRIPT](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
