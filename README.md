@@ -8,3 +8,9 @@
 ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
 ![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=Spring-Security&logoColor=white)
 ![MARIADB](https://img.shields.io/badge/MariaDB-02303A?style=for-the-badge&logo=mariadb&logoColor=white)
+![MARIADB](https://img.shields.io/badge/thymeleaf-#005F0F?style=for-the-badge&logo=thymeleaf&logoColor=white)
+
+
+
+
+#005F0F
