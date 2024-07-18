@@ -25,7 +25,7 @@ import com.example.onepickApi.repository.ApplyListRepository;
 import com.example.onepickApi.repository.JobAdRepository;
 import com.example.onepickApi.repository.ResumeRepository;
 import com.example.onepickApi.repository.UserRepository;
-import com.example.onepickApi.service.NotificationService;
+//import com.example.onepickApi.service.NotificationService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -42,8 +42,8 @@ public class ApplyController_user {
 	
 	@Autowired
 	private JobAdRepository jobadRepo; 
-	@Autowired
-	private NotificationService notificationService;
+//	@Autowired
+//	private NotificationService notificationService;
 	
 	@Autowired
 	private ResumeRepository resumeRepo;	
@@ -83,11 +83,13 @@ public class ApplyController_user {
 		
 		System.out.println("지원내역 출력 : " + applyList);
 		
-		//해당 기업에 지원자가 지원했다는 사실 알림보내주기><
-		if(jobad.getCompany().getToken() != null) {
-			String token = jobad.getCompany().getToken();
-			notificationService.sendNotification(token, " 📢 새로운 지원자 알림 ", jobad.getCompany().getName() +" 님이 올리신 공고에 "+ user.getName() + " 님이 지원했어요! 확인해보세요😉 ");
-		}
+//		//해당 기업에 지원자가 지원했다는 사실 알림보내주기><
+//		if(jobad.getCompany().getToken() != null) {
+//			String token = jobad.getCompany().getToken();
+//			notificationService.sendNotification(token, " 📢 새로운 지원자 알림 "
+//					, jobad.getCompany().getName() +" 님이 올리신 공고에 "+ user.getName() 
+//					+ " 님이 지원했어요! 확인해보세요😉 ");
+//		}
 		return new ResponseEntity<>(ano, HttpStatus.OK);
 	}
 	

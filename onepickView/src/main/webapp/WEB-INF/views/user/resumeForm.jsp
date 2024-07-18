@@ -363,6 +363,13 @@ let experienceArr=[];
 let oaArr=[];
 
 
+let currentId = 0;
+
+// ID 생성 함수
+function generateId() {
+    return currentId++;
+}
+
 
 function getResumeData() {
 	    const disclo = document.querySelector("input[name=disclo]");
@@ -385,6 +392,7 @@ function getResumeData() {
 	    }
 	    
 	    let resumeObj = {
+	    	"id": generateId(),
 	        "disclo": disclo.value,
 	        "title": title.value,
 	        "selfInfoTitle": selfInfoTitle.value,
@@ -422,6 +430,7 @@ function getResumeData() {
 		}
 		
 		let schoolObj = {
+				"id": generateId(),
 				"accDate" : accDate.value,
 				"gradDate" : gradDate.value,
 				"eduName" : eduName.value,
@@ -436,6 +445,7 @@ function getResumeData() {
 		//목록 넣어주기
 		const listItem = document.createElement("ul");
 		listItem.classList = "school-item"; 
+		listItem.setAttribute("data-id", schoolObj.id);
 		listItem.innerHTML = " <span style='position:absolute; top:10px; right:10px;' onclick='deleteEl(event)'>❌</span><li> 재학기간 : "+ accDate.value + "  ~  " + gradDate.value +"</li><li> 학교명 : "
 		+eduName.value	+"</li><li> 전공학과 : " +  major.value+"</li>"
 		+"<li> 학점 : " +  score.value+"</li>"
@@ -477,6 +487,7 @@ function getResumeData() {
 		}
 		
 		let careerObj = {
+				"id": generateId(),
 				"cType" : cType.value,
 				"careerStatus" : careerStatus.value,
 				"companyName" : companyName.value,
@@ -492,6 +503,7 @@ function getResumeData() {
 		//목록 넣어주기
 		const listItem = document.createElement("ul");
 		listItem.classList = "career-item"; 
+		listItem.setAttribute("data-id", careerObj.id);
 		listItem.innerHTML = "<span style='position:absolute; top:10px; right:10px;' onclick='deleteEl(event)'>❌</span><li> <li> 근무기간 : "+ startDate.value + "  ~  " + endDate.value +"</li><li> 회사명 : "
 		+companyName.value	+"</li><li> 직급 : " +  rank.value+"</li>"
 		+"<li> 업종 : " +  cType.value+"</li>"
@@ -530,6 +542,7 @@ function getResumeData() {
 		}
 		
 		let licenseObj = {
+				"id": generateId(),
 				"getDate" : getDate.value,
 				"lname" : lname.value,
 				"org" : org.value,
@@ -540,6 +553,7 @@ function getResumeData() {
 		//목록 넣어주기
 		const listItem = document.createElement("ul");
 		listItem.classList = "license-item"; 
+		listItem.setAttribute("data-id", licenseObj.id);
 		listItem.innerHTML = "<span style='position:absolute; top:10px; right:10px;' onclick='deleteEl(event)'>❌</span><li> <li> 자격증명 : "+lname.value + "</li><li> 발급기관 : "+org.value	+"</li><li> 취득일 : " +  getDate.value+"</li>"
 		licenseContainer.appendChild(listItem);
 		
@@ -569,6 +583,7 @@ function getResumeData() {
 		}
 		
 		let experienceObj = {
+				"id": generateId(),
 				"endDay" : endDay.value,
 				"startDay" : startDay.value,
 				"exContent" : exContent.value,
@@ -580,6 +595,7 @@ function getResumeData() {
 		//목록 넣어주기
 		const listItem = document.createElement("ul");
 		listItem.classList = "experience-item"; 
+		listItem.setAttribute("data-id", experienceObj.id);
 		listItem.innerHTML = "<span style='position:absolute; top:10px; right:10px;' onclick='deleteEl(event)'>❌</span><li> <li> 활동 기간 : "+startDay.value + ' ~ ' + endDay.value +"</li><li> 참여기관 : "+exOrg.value
 		+"</li><li> 활동내역 : "+exContent.value +"</li>"
 		experienceContainer.appendChild(listItem);
@@ -610,6 +626,7 @@ function getResumeData() {
 		}
 		
 		let oaObj = {
+				"id": generateId(),
 				"oaContent" : oaContent.value,
 				"skillName" : skillName.value,
 		}
@@ -621,8 +638,7 @@ function getResumeData() {
 		//목록 넣어주기
 		const listItem = document.createElement("ul");
 		listItem.classList = "oa-item"; 
-		let index = oaArr.length;
-		listItem.setAttribute("data-index", index);  
+	    listItem.setAttribute("data-id", oaObj.id);
 		listItem.innerHTML = "<span style='position:absolute; top:10px; right:10px;' onclick='deleteEl(event)'>❌</span><li> <li> 스킬 : "+skillName.value + "</li><li> 내용 : "+oaContent.value	+"</li>"
 		oaContainer.appendChild(listItem);
 		
@@ -634,6 +650,26 @@ function getResumeData() {
 	    $('#exampleModal4').modal('hide');
 	}
 	
+
+	function deleteEl(event) {
+	    const listItem = event.target.closest("ul");
+	    const id = parseInt(listItem.getAttribute("data-id"));
+
+	    if (listItem.classList.contains('school-item')) {
+	        schoolArr = schoolArr.filter(item => item.id !== id);
+	    } else if (listItem.classList.contains('career-item')) {
+	        careerArr = careerArr.filter(item => item.id !== id);
+	    } else if (listItem.classList.contains('license-item')) {
+	        licenseArr = licenseArr.filter(item => item.id !== id);
+	    } else if (listItem.classList.contains('experience-item')) {
+	        experienceArr = experienceArr.filter(item => item.id !== id);
+	    } else if (listItem.classList.contains('oa-item')) {
+	        oaArr = oaArr.filter(item => item.id !== id);
+	    }
+
+	    listItem.remove();
+	}
+
 	 
 	
 	function postData(e) {
@@ -699,6 +735,7 @@ function getResumeData() {
 	
 	
 </script>
+
 <jsp:include page="../layout/footer.jsp"></jsp:include>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

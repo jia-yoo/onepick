@@ -17,7 +17,7 @@ import com.example.onepickApi.entity.Company;
 import com.example.onepickApi.entity.User;
 import com.example.onepickApi.repository.CompanyRepository;
 import com.example.onepickApi.repository.UserRepository;
-import com.example.onepickApi.service.NotificationService;
+//import com.example.onepickApi.service.NotificationService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -26,8 +26,8 @@ import jakarta.servlet.http.HttpServletRequest;
 @RestController
 public class NotificationController {
 
-	@Autowired
-	private NotificationService notificationService;
+//	@Autowired
+//	private NotificationService notificationService;
 	@Autowired
 	private UserRepository userRepo;
 	@Autowired
@@ -60,16 +60,16 @@ public class NotificationController {
     	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     
-	@PostMapping("/test")
-	private  String test(HttpServletRequest request) {
-	
-		
-		String token = companyRepo.findById(request.getHeader("username")).get().getToken();
-		notificationService.sendNotification(token, "번겁슙니다", "알림성공추카드려욥!");
-		
-		
-		return "알림이갔을깝쑝??????";
-	}
+//	@PostMapping("/test")
+//	private  String test(HttpServletRequest request) {
+//	
+//		
+//		String token = companyRepo.findById(request.getHeader("username")).get().getToken();
+//		notificationService.sendNotification(token, "번겁슙니다", "알림성공추카드려욥!");
+//		
+//		
+//		return "알림이갔을깝쑝??????";
+//	}
 	
 	
 	

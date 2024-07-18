@@ -38,7 +38,7 @@ import com.example.onepickApi.repository.InterestedCopRepository;
 import com.example.onepickApi.repository.JobAdRepository;
 import com.example.onepickApi.repository.JobadScrapRepository;
 import com.example.onepickApi.repository.SkillRepository;
-import com.example.onepickApi.service.NotificationService;
+//import com.example.onepickApi.service.NotificationService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -56,8 +56,8 @@ public class RecruitController_jia {
 	private InterestedCopRepository interestedCopRepo;
 	@Autowired
 	private SkillRepository skillRepo;
-	@Autowired
-	private NotificationService notificationService;
+//	@Autowired
+//	private NotificationService notificationService;
 	@Autowired
 	private ApplyListRepository applyListRepo;
 	@Autowired
@@ -120,18 +120,18 @@ public class RecruitController_jia {
 				jobadScrapRepo.delete(js);
 			}
 		}
-		if(applyListRepo.findByJno(jno) != null) {
-			List<ApplyList> list = applyListRepo.findByJno(jno);
-			//이미 지원한 사람이 있을때 그 사람들에게 알림 메시지 보내주기
-			//이미 지원한 사람이 있을때 지원자 전부삭제
-			for(ApplyList al : list) {
-				if(al.getUser().getToken() !=null) {
-					String token = al.getUser().getToken();
-					notificationService.sendNotification(token, " 💥채용공고 삭제💥", al.getUser().getName() +" 님이 구독하신 기업 "+ al.getJobAd().getCompany().getName()+" 의 공고가 더 이상 존재하지 않습니다. 확인해보세요😉");
-				}
-				applyListRepo.delete(al);
-			}
-		}
+//		if(applyListRepo.findByJno(jno) != null) {
+//			List<ApplyList> list = applyListRepo.findByJno(jno);
+//			//이미 지원한 사람이 있을때 그 사람들에게 알림 메시지 보내주기
+//			//이미 지원한 사람이 있을때 지원자 전부삭제
+//			for(ApplyList al : list) {
+//				if(al.getUser().getToken() !=null) {
+//					String token = al.getUser().getToken();
+//					notificationService.sendNotification(token, " 💥채용공고 삭제💥", al.getUser().getName() +" 님이 구독하신 기업 "+ al.getJobAd().getCompany().getName()+" 의 공고가 더 이상 존재하지 않습니다. 확인해보세요😉");
+//				}
+//				applyListRepo.delete(al);
+//			}
+//		}
 		
 		//해당공고에 등록된 skill 모두 지워주기
 		 List<Skill> skillList = skillRepo.findAllByJno(jno);
@@ -246,15 +246,15 @@ public class RecruitController_jia {
 	    			jno = Long.toString(jobad.getJno());
 	    			
 	    			
-	    			//해당 기업을 구독한 유저들에게 새공고가 올라갔다고 알림보내주기><
-	    			List<InterestedCop> lists = interestedCopRepo.findAllByCid(request.getHeader("username"));
-	    			for(InterestedCop ic : lists) {
-	    				//해당 기업을 구독한 유저 중 알림 토큰이 있는 유저만 
-	    				if(ic.getUser().getToken() != null) {
-	    					String token = ic.getUser().getToken();
-	    					notificationService.sendNotification(token, " ✨ NEW 채용공고알림 ✨",ic.getUser().getName() +" 님이 구독하신 기업 "+ ic.getCompany().getName()+" 의 새로운 채용공고가 등록되었습니다. 확인해보세요😉");
-	    				}
-	    			}
+//	    			//해당 기업을 구독한 유저들에게 새공고가 올라갔다고 알림보내주기><
+//	    			List<InterestedCop> lists = interestedCopRepo.findAllByCid(request.getHeader("username"));
+//	    			for(InterestedCop ic : lists) {
+//	    				//해당 기업을 구독한 유저 중 알림 토큰이 있는 유저만 
+//	    				if(ic.getUser().getToken() != null) {
+//	    					String token = ic.getUser().getToken();
+//	    					notificationService.sendNotification(token, " ✨ NEW 채용공고알림 ✨",ic.getUser().getName() +" 님이 구독하신 기업 "+ ic.getCompany().getName()+" 의 새로운 채용공고가 등록되었습니다. 확인해보세요😉");
+//	    				}
+//	    			}
 		        } catch (IOException e) {
 		            throw new RuntimeException("Could not create upload directory or save file!", e);
 		        }

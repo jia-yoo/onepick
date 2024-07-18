@@ -150,8 +150,7 @@ public class UserResumeController_msi {
 		public ResponseEntity<String> registResume(@RequestBody Map<String, List<Map<String, String>>> data, HttpServletRequest request) {
 			
 			String username = request.getHeader("username");
-			User user = new User();
-			user.setUsername(username);
+			User user = userRepo.findById(username).get();
 
 			System.out.println("map출력 : " + data);
 			
@@ -163,7 +162,6 @@ public class UserResumeController_msi {
 			} else {
 				return ResponseEntity.notFound().build(); // 404 Not Found
 			}
-			//return ResponseEntity.ok("");
 		}
 	
 	

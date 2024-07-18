@@ -36,7 +36,6 @@ window.setNotification = async function() {
     const notificationBtn = document.querySelector("#exampleModal1 .modal-footer");
 
       console.log('Notification permission granted.');
-      console.log('실행됨ㅁㅁㅁㅁ');
     if (permission === 'granted') {
 
 

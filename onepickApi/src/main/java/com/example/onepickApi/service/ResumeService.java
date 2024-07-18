@@ -411,6 +411,8 @@ public class ResumeService {
 		                oa.setUser(user);
 		                oa.setOa_content(oaData.get("oaContent"));
 		                oa.setSkillName(oaData.get("skillName"));
+		                System.out.println(oa);
+		                System.out.println("왜오류나는데요");
 		                oaRepo.save(oa);
 		            } catch(Exception e) {
 		                throw new IllegalArgumentException("스킬(OA)이 올바르지 않습니다");

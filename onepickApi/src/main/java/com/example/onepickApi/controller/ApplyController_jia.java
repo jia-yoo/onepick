@@ -18,7 +18,7 @@ import com.example.onepickApi.entity.ApplyList;
 import com.example.onepickApi.entity.JobAd;
 import com.example.onepickApi.repository.ApplyListRepository;
 import com.example.onepickApi.repository.JobAdRepository;
-import com.example.onepickApi.service.NotificationService;
+//import com.example.onepickApi.service.NotificationService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -31,8 +31,8 @@ public class ApplyController_jia {
 	private ApplyListRepository applyListRepo;
 	@Autowired
 	private JobAdRepository jobadRepo;
-	@Autowired
-	private NotificationService notificationService;
+//	@Autowired
+//	private NotificationService notificationService;
 	
 	//우리회사 지원한 지원자 리스트 뽑기
 	@GetMapping("/company")
@@ -83,11 +83,11 @@ public class ApplyController_jia {
 		applyListRepo.save(al);
 		
 		
-		//지원상태가 변경되면 해당 유저에게 지원상태가 변경됐다고 알림보내주기><
-		if(al.getUser().getToken() != null) {
-			String token = al.getUser().getToken();
-			notificationService.sendNotification(token, " 📢 지원 상태 변경 알림 ",al.getUser().getName() +" 님이 지원하셨던 기업 "+ al.getJobAd().getCompany().getName() + " 이 지원상태를 업데이트했어요! 확인해보세요😉 ");
-		}
+//		//지원상태가 변경되면 해당 유저에게 지원상태가 변경됐다고 알림보내주기><
+//		if(al.getUser().getToken() != null) {
+//			String token = al.getUser().getToken();
+//			notificationService.sendNotification(token, " 📢 지원 상태 변경 알림 ",al.getUser().getName() +" 님이 지원하셨던 기업 "+ al.getJobAd().getCompany().getName() + " 이 지원상태를 업데이트했어요! 확인해보세요😉 ");
+//		}
 		
 		return new ResponseEntity<>("done", HttpStatus.OK);
 	}

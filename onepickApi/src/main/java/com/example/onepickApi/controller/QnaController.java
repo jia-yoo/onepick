@@ -23,7 +23,7 @@ import com.example.onepickApi.entity.User;
 import com.example.onepickApi.repository.CompanyRepository;
 import com.example.onepickApi.repository.QnaRepository;
 import com.example.onepickApi.repository.UserRepository;
-import com.example.onepickApi.service.NotificationService;
+//import com.example.onepickApi.service.NotificationService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -40,8 +40,8 @@ public class QnaController {
 	
 	@Autowired
 	private CompanyRepository companyRepository;
-	@Autowired
-	private NotificationService notificationService;
+//	@Autowired
+//	private NotificationService notificationService;
 
 	// memberRepo
 	
@@ -110,19 +110,19 @@ public class QnaController {
 		qna.setResponse(qnaDto.getResponse());
 		Qna result = qnaRepository.save(qna);
 		
-		
-		//답변 달아주면 해당 글 올린 사용자에게 푸쉬알람 보내주기
-		if(result1.isPresent()) {		
-			if(result1.get().getToken() != null){
-				String token = result1.get().getToken();
-				notificationService.sendNotification(token, " 💬 QnA 답변 등록 안내 ", result1.get().getName() +" 님이 문의하셨던 글에 관리자의 답변이 등록되었어요! 확인해보세요😉 ");
-			}
-		}else if(result2.isPresent()) {
-			if(result2.get().getToken() != null){
-				String token = result2.get().getToken();
-				notificationService.sendNotification(token, " 💬 QnA 답변 등록 안내 ", result2.get().getName() +" 님이 문의하셨던 글에 관리자의 답변이 등록되었어요! 확인해보세요😉 ");
-			}
-		}
+//		
+//		//답변 달아주면 해당 글 올린 사용자에게 푸쉬알람 보내주기
+//		if(result1.isPresent()) {		
+//			if(result1.get().getToken() != null){
+//				String token = result1.get().getToken();
+//				notificationService.sendNotification(token, " 💬 QnA 답변 등록 안내 ", result1.get().getName() +" 님이 문의하셨던 글에 관리자의 답변이 등록되었어요! 확인해보세요😉 ");
+//			}
+//		}else if(result2.isPresent()) {
+//			if(result2.get().getToken() != null){
+//				String token = result2.get().getToken();
+//				notificationService.sendNotification(token, " 💬 QnA 답변 등록 안내 ", result2.get().getName() +" 님이 문의하셨던 글에 관리자의 답변이 등록되었어요! 확인해보세요😉 ");
+//			}
+//		}
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
