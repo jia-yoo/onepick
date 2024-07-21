@@ -48,7 +48,7 @@ import jakarta.websocket.server.PathParam;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/v1")
-public class UserResumeController_msi {
+public class UserResumeController_jia {
 
 	@Autowired
 	private ResumeRepository repo;
@@ -62,85 +62,7 @@ public class UserResumeController_msi {
 	@Autowired
 	private ApplyListRepository applyRepo;
 
-	/*// 이력서 등록하기
-	@PostMapping("/resume")
-	public ResponseEntity<String> registResume(ResumeDto resumeDto, CareerDto careerDto, ExperienceDto experienceDto,
-			LicenseDto licenseDto, OaDto oaDto, SchoolDto schoolDto, HttpServletRequest request) {
-		
-		String username = request.getHeader("username");
-		User user = new User();
-		user.setUsername(username);
-		
-		// resume 엔티티 저장
 
-		Resume resume = new Resume();
-		resume.setDisclo(resumeDto.getDisclo());
-		resume.setTitle(resumeDto.getTitle());
-		resume.setSelfInfoTitle(resumeDto.getSelfInfoTitle());
-		resume.setSelfInfoContent(resumeDto.getSelfInfoContent());
-		resume.setRegion1(resumeDto.getRegion1());
-		resume.setRegion1_1(resumeDto.getRegion1_1());
-		resume.setRegion2(resumeDto.getRegion2());
-		resume.setRegion2_1(resumeDto.getRegion2_1());
-		resume.setSector(resumeDto.getSector());
-		resume.setJob(resumeDto.getJob());
-		resume.setPortfolioUrl(resumeDto.getPortfolioUrl());
-		resume.setUser(user);
-		
-		
-		// experience 엔티티 저장
-		Experience ex = new Experience();
-		ex.setStartDay(experienceDto.getStartDay());
-		ex.setEndDay(experienceDto.getEndDay());
-		ex.setEx_org(experienceDto.getEx_org());
-		ex.setEx_content(experienceDto.getEx_content());
-		ex.setUser(user);
-		
-		// license 엔티티 저장
-		License li = new License();
-		li.setLname(licenseDto.getLname());
-		li.setOrg(licenseDto.getOrg());
-		li.setGetDate(licenseDto.getGetDate());
-		li.setUser(user);
-
-		// School 엔티티 저장
-		School sc = new School();
-		sc.setAccDate(schoolDto.getAccDate());
-		sc.setGradDate(schoolDto.getGradDate());
-		sc.setEduName(schoolDto.getEduName());
-		sc.setMajor(schoolDto.getMajor());
-		sc.setScore(schoolDto.getScore());
-		sc.setS_status(schoolDto.getS_status());
-		sc.setUser(user);
-
-		// Career 엔티티 저장
-		Career ca = new Career();
-		ca.setStartDate(careerDto.getStartDate());
-		ca.setEndDate(careerDto.getStartDate());
-		ca.setCompanyName(careerDto.getCompanyName());
-		ca.setRank(careerDto.getRank());
-		ca.setCareer_status(careerDto.getCareer_status());
-		ca.setC_type(careerDto.getC_type());
-		ca.setPosition(careerDto.getPosition());
-		ca.setWork(careerDto.getWork());
-		ca.setUser(user);
-
-		// OA 엔티티 저장
-		Oa oa = new Oa();
-		oa.setSkillName(oaDto.getSkillName());
-		oa.setOa_content(oaDto.getOa_content());
-		oa.setUser(user);
-
-		String result = resumeService.saveResume(resume, ex, ca, oa, sc, li);
-
-		if (result != null) {
-			return ResponseEntity.ok(result); // 200 OK
-		} else {
-			return ResponseEntity.notFound().build(); // 404 Not Found
-		}
-
-	}*/
-	
 	
 	
 	

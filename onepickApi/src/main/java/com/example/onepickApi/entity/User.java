@@ -1,6 +1,7 @@
 package com.example.onepickApi.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,5 +40,6 @@ public class User extends BaseEntity implements Member{
     private String militaryService;
     @Column(unique = true)
     private String token;
+    private LocalDateTime lastTokenUsedTime;
     private boolean active; // 활동 상태 추가
 }

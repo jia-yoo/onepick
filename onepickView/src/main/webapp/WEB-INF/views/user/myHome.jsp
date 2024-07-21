@@ -13,148 +13,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="/js/notification.js" type="module"></script>
 <link href="/css/company_myHome.css" rel="stylesheet">
-<style>
-/*
-#myHomeContainer {
-    max-width: 1000px;
-    margin: 40px auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-.user-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.user-img {
-    margin-right: 40px;
-    margin-left: 20px;
-}
-
-#userImg {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.user-details {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex: 1; /* Flexbox를 사용하여 남은 공간 차지 */
-}
-/*
-.user-details li {
-    margin-bottom: 5px;
-    font-size: 1.1em;
-}
-
-.user-details a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.user-details a:hover {
-    text-decoration: underline;
-}
-
-.user-details-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.res {
-    border: 1px solid lightgrey;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    padding: 15px !important;
-    margin-bottom: 20px !important;
-    list-style-type: none;
-}
-
-.res li {
-    margin-bottom: 8px !important;
-    font-size: 1em;
-}
-
-.res li a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.res li a:hover {
-    text-decoration: underline;
-}
-
-.myHomelink {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.myHomelink:hover {
-    text-decoration: underline;
-}
-
-.def {
-    color: #ff4500;
-    font-weight: bold;
-}
-
-.def_div {
-    margin-bottom: 10px;
-}
-
-.resume-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.quickMenu {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.quickMenu a {
-    display: inline-block;
-    margin: 10px 20px;
-    padding: 15px 20px; /* Padding을 추가하여 버튼처럼 보이게 함 */
-    /*
-    color: black;
-    text-decoration: none;
-    font-size: 1.1em;
-    background-color: #f8f9fa; /* 배경색 추가 */
-     /*
-    border: 1px solid #ced4da; /* 테두리 추가 */
-     /*
-    border-radius: 5px; /* 둥근 모서리 추가 */
-     /*
-    transition: background-color 0.3s, color 0.3s; /* 전환 효과 추가 */
- /*    
-}
- /*
-.quickMenu a:hover {
-    text-decoration: none;
-    background-color: #007bff; /* 호버 시 배경색 변경 */
-     /*
-    color: white; /* 호버 시 글자색 변경 */
-     /*
-    border-color: #007bff; /* 호버 시 테두리 색 변경 */
- /*
-}
- /*
-.homeinfo{
-	margin-top : 30px;
-	margin-bottom : 80px;
-}
-*/
-</style>
 </head>
 <body class="d-flex flex-column h-100 min-h-100">
 <jsp:include page="../layout/header.jsp"></jsp:include>
@@ -272,6 +131,7 @@
       </div>
       <div class="modal-body">
         웹 푸쉬 알림을 통해 필요한 소식을 모두 받아보실 수 있습니다.
+        * 다른 사용자에게 불필요한 알림이 전송될 수 있으므로, 공용 컴퓨터나 브라우저에서 알림을 허용하지 마시고, 반드시 개인용 브라우저나 컴퓨터에서만 알림을 허용하세요.*
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">다음에</button>
@@ -298,19 +158,7 @@ $(document).ready(function() {
         	var userInfo = $('#userInfo');
         	    	
         	var user = data;
-        	/*
-            var userDiv = $('<div class="user-info"></div>');
-
-            var imgDiv = $('<div class="user-img"></div>');
-            
-            imgDiv.append('<img src="/img/no_img.jpg" id="userImg">');
-            
-            var infoDiv = $('<div class="user-details"></div>');
-            infoDiv.append('<a href="/user/userEdit" class="myHomelink">내정보 수정</a>');
-            infoDiv.append('<li>이름 :  ' + user.name + ' 님 </li>');
-            infoDiv.append('<li>성별 :  ' + user.gender + '</li>');
-            infoDiv.append('<li>지역 :  ' + user.addr + '</li>');
-            */
+        	
 
             //var editLink = $('<a href="/user/userEdit" class="myHomelink">내정보 수정</a>');
             document.querySelector("#userName").innerHTML = user.name;
@@ -324,29 +172,6 @@ $(document).ready(function() {
             
             var userDetailsContainer = $('<div class="user-details-container"></div>');
 
-//             userDetailsContainer.append(infoDiv);
-           // userDetailsContainer.append(editLink);
-
-//             userDiv.append(imgDiv);
-//             userDiv.append(userDetailsContainer);
-
-//             userInfo.append(userDiv);
-
-           // userDetailsContainer.append(infoDiv);
-           // userDetailsContainer.append(editLink);
-
-            //userDiv.append(imgDiv);
-           // userDiv.append(userDetailsContainer);
-
-            //userInfo.append(userDiv);
-
-           // userDetailsContainer.append(infoDiv);
-           // userDetailsContainer.append(editLink);
-
-            //userDiv.append(imgDiv);
-           // userDiv.append(userDetailsContainer);
-
-            //userInfo.append(userDiv)
            
         },
         error: function(xhr, status, error) {

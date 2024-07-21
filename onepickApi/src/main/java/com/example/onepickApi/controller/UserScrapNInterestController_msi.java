@@ -50,31 +50,7 @@ public class UserScrapNInterestController_msi {
 	private CompanyRepository companyRepo; //기업 레포지토리
 	
 	
-	
-	
-//	@PostMapping("/job-scrap/{jno}")
-//	public Long registScrap(HttpServletRequest request, @PathVariable("jno") Long jno) {
-//		//스크랩 등록
-//		
-//		String username = request.getHeader("username"); 
-//		Optional<User> result = userRepo.findById(username);
-//		User user = result.get();
-//
-//		JobAd jobad = jobadRepo.findById(jno).get();
-//		
-//		JobadScrap scrap = new JobadScrap();
-//		
-//		scrap.setUser(user);
-//		scrap.setJobAd(jobad);
-//		
-//		JobadScrap resultscrap = scrapRepo.save(scrap);
-//		Long scno = resultscrap.getScno();
-//		
-//		System.out.println("스크랩 데이터" + resultscrap);
-//		
-//		return scno;
-//	}
-	
+
 	
 	
 	@GetMapping("/job-scrap")

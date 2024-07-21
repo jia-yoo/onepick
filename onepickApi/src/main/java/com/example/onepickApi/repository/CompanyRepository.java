@@ -1,5 +1,6 @@
 package com.example.onepickApi.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -27,5 +28,7 @@ public interface CompanyRepository extends JpaRepository<Company, String> {
 
 	List<Company> findByNameContainingOrSectorContainingOrSizeContaining(String name, String sector, String size);
 	 
+	@Query(value="UPDATE Company SET token = null WHERE last_token_used_time < :cutoffDate", nativeQuery=true)
+	void clearTokensByLastTokenUsedTimeBefore( @Param("cutoffDate") LocalDateTime cutoffDate);
 
 }

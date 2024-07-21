@@ -349,27 +349,67 @@
       <div class="modal-body">
        	<label for="select_skill">타입 *</label>
 		<select name="skillName" id="select_skill" class="selectbox">
-			<option value="">스킬 선택 *</option>
-			<option value="java">java</option>
-			<option value="python">python</option>
-			<option value="javascript">javascript</option>
-			<option value="c++">c++</option>
-			<option value="Ruby">Ruby</option>
-			<option value="SQL">SQL</option>
-			<option value="R">R</option>
-			<option value="C">C</option>
-			<option value="ERP">ERP</option>
-			<option value="HTML/CSS">HTML/CSS</option>
-			<option value="React">React</option>
-			<option value="Angular">Angular</option>
-			<option value="Vue.js">Vue.js</option>
-			<option value="Django">Django</option>
-			<option value="네트워크 보안">네트워크 보안</option>
-			<option value="Swift(IOS)">Swift(IOS)</option>
-			<option value="Kotlin">Kotlin</option>
-			<option value="Flutter">Flutter</option>
-			<option value="Excel">Excel</option>
-			<option value="외국어능통">외국어능통</option>
+			 <option value="">스킬 선택</option>
+					 <option value="재무제표관리">재무제표관리</option>
+					 <option value="고객관계관리">고객관계관리</option>
+					 <option value="기본데이터분석기술">기본데이터분석기술</option>
+					 <option value="커뮤니케이션기술">커뮤니케이션기술</option>
+					 <option value="리더십">리더십</option>
+					 <option value="팀워크">팀워크</option>
+					 <option value="문제해결">문제해결</option>
+					 <option value="디자인">Photoshop</option>
+					 <option value="커뮤니케이션기술">AdobeXD</option>
+					 <option value="커뮤니케이션기술">Jira</option>
+			         <option value="Figma">Figma</option>
+			         <option value="HTML">HTML</option>
+			         <option value="프리미어">프리미어</option>
+			         <option value="illustrator">illustrator</option>
+			         <option value="마케팅역량">마케팅역량</option>
+			         <option value="홍보광고">홍보광고</option>
+			         <option value="세일즈리더십">세일즈리더십</option>
+			         <option value="번역">번역</option>
+			         <option value="영상제작">영상제작</option>
+			         <option value="모바일애플리케이션개발">모바일애플리케이션개발</option>
+			         <option value="디자인">UX디자인</option>
+			         <option value="인공지능">인공지능</option>
+			         <option value="사람관리">사람관리</option>
+			         <option value="분석적사고력">분석적사고력</option>
+			         <option value="음향제작">음향제작</option>
+			         <option value="회계">회계</option>
+			         <option value="금융상품개발">금융상품개발</option>
+			         <option value="금융영업">금융영업</option>
+			         <option value="신용분석">신용분석</option>
+			         <option value="총무">총무</option>
+			         <option value="품질관리">품질관리</option>
+			         <option value="무역유통관리">무역유통관리</option>
+			         <option value="일반사무">일반사무</option>
+			         <option value="경영기획">경영기획</option>
+			         <option value="건강관리">건강관리</option>
+			         <option value="배관공사">배관공사</option>
+			         <option value="하드웨어">하드웨어</option>
+			         <option value="외국어능통">외국어능통</option>
+			         <option value="식음료">식음료</option>
+			         <option value="자동차정비">자동차정비</option>
+			         <option value="간호">간호</option>
+			         <option value="의료">의료</option>
+			         <option value="전기">전기</option>
+			         <option value="python">python</option>
+			         <option value="javascript">javascript</option>
+			         <option value="Ruby">Ruby</option>
+			         <option value="SQL">SQL</option>
+			         <option value="R">R</option>
+			         <option value="C">C</option>
+			         <option value="ERP">ERP</option>
+			         <option value="클라우드컴퓨팅">클라우드컴퓨팅</option>
+			         <option value="React">React</option>
+			         <option value="Angular">Angular</option>
+			         <option value="Vue.js">Vue.js</option>
+			         <option value="Django">Django</option>
+			         <option value="네트워크 보안">네트워크 보안</option>
+			         <option value="Swift(IOS)">Swift(IOS)</option>
+			         <option value="Kotlin">Kotlin</option>
+			         <option value="Flutter">Flutter</option>
+			         <option value="Excel">Excel</option>
 		</select><br>
 		
 		내용<input type="text" name="oa_content" placeholder="내용을 입력하세요" class="textbox">
@@ -462,12 +502,6 @@ $(document).ready(function() {
             var skill = data.oaList[0]; // 예시로 첫 번째 스킬을 사용
             $('#select_skill').val(skill.skillName);
             $('#oa_content').val(skill.oa_content);
-            
-            
-            
-            
-            
-            
         },
         error: function(xhr, status, error) {
             console.error('AJAX 요청 실패:', status, error);

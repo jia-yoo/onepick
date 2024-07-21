@@ -41,10 +41,10 @@ window.setNotification = async function() {
 
       // Register the Service Worker and get the FCM token
       if ('serviceWorker' in navigator) {
-        const registration = await navigator.serviceWorker.register('/js/firebase-messaging-sw.js');
+        const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
         console.log('Service Worker registered with scope:', registration.scope);
         const currentToken = await getToken(messaging, {
-          vapidKey: 'BLcSeRWoHAyawxByQ1N__CdtF49_9xrIDS4sW0Zu5VuS3zXZvM9xyym054TN276SxN_za2eeV7mBak77Zetgf2Q',
+          vapidKey: 'BOE-pbUfx_g4mu9RK8d4HiPpLXg1b-vT1_C1uWG2H4VsSXO3-OD8PT6Y1fNkeD0VFN4NtlMJaVsBfM4tztKcf70',
           serviceWorkerRegistration: registration
         });
  			console.log('FCM Token:', currentToken);
